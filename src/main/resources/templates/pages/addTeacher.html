@@ -1,0 +1,72 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>教师添加界面</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="page-header">
+                <h1>
+                    <small>新增教师</small>
+                </h1>
+            </div>
+        </div>
+        <form th:action="@{/pages/allteacher}" method="post">
+            <div class="form-group">
+                <label>id</label>
+                <input type="text" class="form-control" name="id" required>
+            </div>
+            <div class="form-group">
+                <label>学校代码</label>
+                <input type="text" class="form-control" name="schoolId" required>
+            </div>
+            <div class="form-group">
+                <label>教师代码</label>
+                <input type="text" class="form-control" name="teacherCode" required>
+            </div>
+            <div class="form-group">
+                <label>头像</label>
+                <input type="text" class="form-control" name="avatar" required>
+            </div>
+            <div class="form-group">
+                <label>名字</label>
+                <input type="text" class="form-control" name="name" required>
+            </div>
+            <div class="form-group">
+                <label>性别</label>
+                <input type="text" class="form-control" name="sex" required>
+            </div>
+            <div class="form-group">
+                <label>职级</label>
+                <input type="text" class="form-control" name="title" required>
+            </div>
+            <div class="form-group">
+                <label>学科</label>
+                <input type="text" class="form-control" name="subject" required>
+            </div>
+            <div class="form-group">
+                <label>手机号码</label>
+                <input type="text" class="form-control" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label>执教开始日期</label>
+                <input type="text" class="form-control" name="startTeachDate" required>
+            </div>
+            <div class="form-group">
+                <label>创建时间</label>
+                <input type="text" class="form-control" name="createAt" required>
+            </div>
+            <div class="form-group">
+                <label>更改时间</label>
+                <input type="text" class="form-control" name="updateAt" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="form-control" value="添加">
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

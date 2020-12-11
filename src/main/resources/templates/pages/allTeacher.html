@@ -1,0 +1,77 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>教师展示界面</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="page-header">
+                <h1>
+                    <small>教师列表 —— 显示所有教师</small>
+                </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 column">
+                <a class="btn btn-primary" th:href="@{/pages/addteacher}">新增教师</a>
+                <a class="btn btn-primary" th:href="@{/pages/allteacher}">显示所有教师</a>
+            </div>
+            <div class="col-md-8 column">
+                <form  action="#" class="form-inline" th:action="@{/searchTeacher}" th:object="${pin}" method="post" style="float:right">
+                    <span style="color:red;font-weight: bold" th:text="${error}">
+                    </span>
+                    <input type="text" th:field="*{name}" width="50%"  class="from-control" placeholder="请输入要查询的教师名称"/>
+                    <input type="submit" class="btn btn-primary" value="查询" >
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <table class="table table-hover table-striped">
+                <thead>
+                <tr>
+                    <th>id</th>
+                    <th>学校名称</th>
+                    <th>教师编号</th>
+                    <th>头像</th>
+                    <th>名字</th>
+                    <th>性别</th>
+                    <th>职级</th>
+                    <th>学科</th>
+                    <th>手机号码</th>
+                    <th>执教开始日期</th>
+                    <th>创建时间</th>
+                    <th>更改时间</th>
+                </thead>
+                <tbody>
+                <!--                <c:forEach var="book" items="${list}">-->
+                <tr th:each="teacher:${key}">
+                    <td th:text="${teacher.getId()}"></td>
+                    <td th:text="${teacher.getSchoolId()}"></td>
+                    <td th:text="${teacher.getTeacherCode()}"></td>
+                    <td th:text="${teacher.getAvatar()}"></td>
+                    <td th:text="${teacher.getName()}"></td>
+                    <td th:text="${teacher.getSex()}"></td>
+                    <td th:text="${teacher.getTitle()}"></td>
+                    <td th:text="${teacher.getSubject()}"></td>
+                    <td th:text="${teacher.getPhone()}"></td>
+                    <td th:text="${#dates.format(teacher.getStartTeachDate(), 'yyyy-MM-dd')}"></td>
+                    <td th:text="${#dates.format(teacher.getCreateAt(), 'yyyy-MM-dd')}"></td>
+                    <td th:text="${#dates.format(teacher.getUpdateAt(), 'yyyy-MM-dd')}"></td>
+                    <td>
+                        <a th:href="@{/pages/toupdateteacher/{id}(id=${teacher.getId()})}">修改</a> |
+                        <a th:href="@{/pages/deleteteacher/{id}(id=${teacher.getId()})}">删除</a>
+                    </td>
+                </tr>
+                <!--                </c:forEach>-->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
