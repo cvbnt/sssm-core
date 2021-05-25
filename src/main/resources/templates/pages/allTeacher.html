@@ -55,7 +55,7 @@
                     <td th:text="${teacher.getTeacherCode()}"></td>
                     <td th:text="${teacher.getAvatar()}"></td>
                     <td th:text="${teacher.getName()}"></td>
-                    <td th:text="${teacher.getSex()}"></td>
+                    <td th:text="${teacher.getSex()==1?'男':'女'}"></td>
                     <td th:text="${teacher.getTitle()}"></td>
                     <td th:text="${teacher.getSubject()}"></td>
                     <td th:text="${teacher.getPhone()}"></td>
